@@ -44,6 +44,7 @@ Le composant est structuré autour de deux parties :
 | **ViewOnly** | Active le mode lecture seule (aucun ajout/modification). |
 | **FullSizeScreen** | Étend la grille à la largeur de la page. |
 | **editOnly** | Active uniquement la modification (sans ajout). |
+| **addOnly** | Active uniquement l'ajout (sans mdification). |
 
 ---
 
@@ -106,6 +107,7 @@ return [
 | `editType` | string | Type d’éditeur : `"text"`, `"select"`, `"select_dynamic"`, `"select_conditional"`, `"image"`. |
 | `options` | array / ref | Liste d’options statiques ou collection Xano. |
 | `fieldObject` | string | Objet parent pour la sérialisation (ex. `"brand"`). |
+| `initLinkedObjectValue` | string | (select_conditional) référence à la colonne servant de cible de paramètrage conditionnel  (ex. `"target_id"`). |
 | `dynamicParameter` | string | (select_dynamic) paramètre transmis à l’endpoint. |
 | `endPoint_path` | string | (select_dynamic) chemin de l’endpoint Xano. |
 | `endPoint_groupApi` | string | (select_dynamic) ID du groupe d’API Xano. |
@@ -174,8 +176,8 @@ options: collections['1234abcd']?.['data']?.['targets']
 La structure de donnée attendue est la suivante :
 ```js
 [{
-   target_type_code: "code"
-   target_type_label: "Libellé du code"
+   code: "code"
+   label: "Libellé du code"
    options : [{},...]
 }]
 ```
@@ -201,8 +203,9 @@ imageHeight: "100%"
 | **Affichage simple** | Lecture seule (aucun ajout ni édition). |
 | **Ajout + Modification** | CRUD complet. |
 | **Modification seule** | Pas d’ajout, uniquement édition/suppression. |
+| **Ajout seul** | Pas de modification, uniquement ajout. |
 
-Les modes se contrôlent via les propriétés `ViewOnly`, `editOnly`, ou les boutons de la barre supérieure.
+Les modes se contrôlent via les propriétés `ViewOnly`, `editOnly`, `addOnly`, ou les boutons de la barre supérieure.
 
 ---
 
