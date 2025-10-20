@@ -38,9 +38,9 @@ Le composant est structuré autour de deux parties :
 |------------|-------------|
 | **Data** | Collection principale affichée dans la grille. |
 | **Template** | Code JSON décrivant les colonnes, champs et comportements. |
-| **Sort / Filter** | Activation des options de tri et de filtrage. |
+| **Sort / Filter** | Activation des options de tri et de filtrage. Ces éléments sont bindés au modèle et donc permettent de contrôler les filtres et tris depuis d'autres composants WeWeb |
 | **Import / Export** | Configuration de l’import/export CSV. |
-| **Display Document** | Active ou non la zone de visualisation (popup de détails). |
+| **Display Documentation** | Active ou non la zone de documentation du composant. |
 | **ViewOnly** | Active le mode lecture seule (aucun ajout/modification). |
 | **FullSizeScreen** | Étend la grille à la largeur de la page. |
 | **editOnly** | Active uniquement la modification (sans ajout). |
@@ -93,7 +93,7 @@ return [
 | `filter` | bool | Active le filtre. |
 | `sort` | bool | Active le tri. |
 | `pinned` | string | Fige la colonne (`"left"` / `"right"`). |
-| `hide` | bool | Masque la colonne. |
+| `hide` | bool | Masque la colonne dans la grille. (Pas dans le formulaire d'edition / ajout |
 
 ---
 
@@ -170,6 +170,14 @@ Une liste dépend d’une autre :
 ```js
 editType: "select_conditional",
 options: collections['1234abcd']?.['data']?.['targets']
+```
+La structure de donnée attendue est la suivante :
+```js
+[{
+   target_type_code: "code"
+   target_type_label: "Libellé du code"
+   options : [{},...]
+}]
 ```
 
 ### 🖼️ Image
