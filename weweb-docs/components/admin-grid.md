@@ -90,6 +90,8 @@ return [
 | `headerName` | string | Nom affiché dans l’en-tête. |
 | `cellDataType` | string | `"text"`, `"number"`, `"boolean"`, `"date"`, `"image"`, `"action"`. |
 | `width` | string | Largeur (ex. `"200px"`). |
+| `widthAlgo` | string | Si flex, un paramètre flex est attendu (`"fixed"`, `"flex"`) |
+| `flex` | number | Nombre permettant de déterminer une largeur de colonne en proportionnel |
 | `editable` | bool | Permet l’édition inline. |
 | `filter` | bool | Active le filtre. |
 | `sort` | bool | Active le tri. |
