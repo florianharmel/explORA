@@ -31,7 +31,7 @@
 ## 3. Équipe Explora
 - **Benoît Renoux** — Données, modèle & back-end **Xano** (externe).
 - **Marine Contet** — Suivi projet & **Airtable** (interne).
-- **Florian Harmel** — Développeur **WeWeb** (transition vers **Product Owner**).
+- **Florian Harmel** — PO + FrontEnd **WeWeb** (externe).
 
 ## 4. Processus & workflows
 1. **Commande** (WeWeb) → validation interne (Elba) → **PDF** / confirmation **email** → **Airtable** pour le suivi.
