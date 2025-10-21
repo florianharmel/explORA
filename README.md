@@ -3,6 +3,8 @@ Version 1.0 – Octobre 2025
 
 > **Explora** est la colonne vertébrale digitale qui relie les métiers du groupe **Ora** (Elba, Piranèse, Mask, Coraux) et leurs clients du **luxe** (L’Oréal, Luxottica, Shiseido, etc.). Pensé avec pragmatisme et exigence, Explora vise à **fluidifier la prise de commande**, **rendre visibles les campagnes et catalogues**, et **accélérer l’exécution** tout en garantissant la traçabilité de bout en bout.
 
+Pour François...
+
 ---
 
 ## Table des matières
