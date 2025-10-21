@@ -67,13 +67,13 @@ Les **interfaces** et **droits** s’adaptent au profil (ex. un client L’Oréa
 ## 7. Crédits et pilotage
 
 - **Sponsor** : François Fillat (Piranèse)  
-- **Chef de projet** : Axel (Piranèse)  
-- **Exécution & Data** : Benoît Renoux (Xano, modèle de données)  
-- **Suivi & Coordination** : Marine Contet (Airtable / suivi projet)  
+- **Chef de projet** : Axelle Andrieu (Piranèse)  
+- **Exécution & Data** : Benoît Renou (Xano, modèle de données)  
+- **Suivi & Coordination** : Marine Cantet (Airtable / suivi projet)  
 - **Direction générale** : Thibaut de Malézieux  
-- **Comptabilité / Sage** : Stéphane Bayez  
-- **Contacts clés** : Aurore (Trade), Lydia Almela (L’Oréal), Amélie Vargoz & Cristina Ruivo (Luxottica), Virginie du Couchet (Coraux), Valérie Thébeau (Mask)
+- **Comptabilité / Sage** : Stéphane Baillez  
+- **Contacts clés** : Aurore Cnudde (Trade), Lydia Almela (L’Oréal), Amélie Vargoz & Cristina Ruivo (Luxottica), Virginie du Boucher (Coraux), Valérie Thébeau (Mask)
 
 ---
 
-**Documentation préparée par Florian Harmel, Product Owner du projet Explora.**
+**Documentation préparée par Florian Harmel.**
