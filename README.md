@@ -69,7 +69,8 @@ Les **interfaces** et **droits** s’adaptent au profil (ex. un client L’Oréa
 - **Sponsor** : François Fillat (Piranèse)  
 - **Chef de projet** : Axelle Andrieu (Piranèse)  
 - **Exécution & Data** : Benoît Renou (Xano, modèle de données)  
-- **Suivi & Coordination** : Marine Cantet (Airtable / suivi projet)  
+- **Exécution & Front** : Florian Harmel (Weweb, Design Strat)  
+- **Execution & Suivi / Coordination** : Marine Cantet (Airtable / suivi projet)  
 - **Direction générale** : Thibaut de Malézieux  
 - **Comptabilité / Sage** : Stéphane Baillez  
 - **Contacts clés** : Aurore Cnudde (Trade), Lydia Almela (L’Oréal), Amélie Vargoz & Cristina Ruivo (Luxottica), Virginie du Boucher (Coraux), Valérie Thébeau (Mask)
