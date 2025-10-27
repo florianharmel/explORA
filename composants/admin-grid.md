@@ -115,6 +115,7 @@ return [
 | `endPoint_groupApi` | string | (select_dynamic) ID du groupe d’API Xano. |
 | `imageWidth` | string | Largeur d’affichage pour les champs `"image"`. |
 | `imageHeight` | string | Hauteur d’affichage pour les champs `"image"`. |
+| `referenceField` | string | (action delete) Champs de référence à afficher / copier dans la popin de suppression. |
 
 > **Remarque :** la valeur `"none"` pour `inForm` indique que le champ est présent dans la grille mais n’apparaît ni en vue détail, ni dans les formulaires d’ajout ou d’édition.
 
