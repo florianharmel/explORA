@@ -45,6 +45,7 @@ Le composant est structuré autour de deux parties :
 | **FullSizeScreen** | Étend la grille à la largeur de la page. |
 | **editOnly** | Active uniquement la modification (sans ajout). |
 | **addOnly** | Active uniquement l'ajout (sans modification). |
+| **forceDelete** | Force l'affichage du bouton de suppression dans la grille. |
 
 ---
 
