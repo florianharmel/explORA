@@ -1,7 +1,7 @@
 # 🧩 Composant DataGrid d’administration — WeWeb + Xano
 
 **Auteur :** Florian Harmel  
-**Version :** 1.1  
+**Version :** 1.2  
 **Date :** Octobre 2025  
 
 ---
@@ -44,7 +44,7 @@ Le composant est structuré autour de deux parties :
 | **ViewOnly** | Active le mode lecture seule (aucun ajout/modification). |
 | **FullSizeScreen** | Étend la grille à la largeur de la page. |
 | **editOnly** | Active uniquement la modification (sans ajout). |
-| **addOnly** | Active uniquement l'ajout (sans mdification). |
+| **addOnly** | Active uniquement l'ajout (sans modification). |
 
 ---
 
@@ -96,7 +96,7 @@ return [
 | `filter` | bool | Active le filtre. |
 | `sort` | bool | Active le tri. |
 | `pinned` | string | Fige la colonne (`"left"` / `"right"`). |
-| `hide` | bool | Masque la colonne dans la grille. (Pas dans le formulaire d'edition / ajout |
+| `hide` | bool | Masque la colonne dans la grille. (Pas dans le formulaire d'édition / ajout) |
 
 ---
 
@@ -104,42 +104,19 @@ return [
 
 | Champ | Type | Description |
 |-------|------|-------------|
-| `inForm` | bool | Inclut le champ dans le formulaire d’ajout/édition. |
+| `inForm` | string | Définit la visibilité du champ dans les formulaires. <br>Valeurs possibles : `"view"`, `"edit"`, `"add"`, `"none"`. |
 | `required` | bool | Rend le champ obligatoire. |
 | `editType` | string | Type d’éditeur : `"text"`, `"select"`, `"select_dynamic"`, `"select_conditional"`, `"image"`. |
 | `options` | array / ref | Liste d’options statiques ou collection Xano. |
 | `fieldObject` | string | Objet parent pour la sérialisation (ex. `"brand"`). |
-| `initLinkedObjectValue` | string | (select_conditional) référence à la colonne servant de cible de paramètrage conditionnel  (ex. `"target_id"`). |
+| `initLinkedObjectValue` | string | (select_conditional) référence à la colonne servant de paramètre conditionnel (ex. `"target_id"`). |
 | `dynamicParameter` | string | (select_dynamic) paramètre transmis à l’endpoint. |
 | `endPoint_path` | string | (select_dynamic) chemin de l’endpoint Xano. |
 | `endPoint_groupApi` | string | (select_dynamic) ID du groupe d’API Xano. |
 | `imageWidth` | string | Largeur d’affichage pour les champs `"image"`. |
 | `imageHeight` | string | Hauteur d’affichage pour les champs `"image"`. |
 
----
-
-### ⚙️ Champs d’action
-
-| Champ | Description |
-|-------|--------------|
-| `cellDataType: "action"` | Colonne d’action avec bouton. |
-| `actionName` | Identifiant de l’action (`"delete"`, `"details"`, `"edit"`, `"custom"`). |
-| `actionLabel` | Texte du bouton. |
-| `pinned: "right"` | Fige les actions à droite. |
-
-Exemple :
-
-```js
-{
-  field: "",
-  pinned: "right",
-  width: "120px",
-  actionName: "delete",
-  headerName: "Suppression",
-  actionLabel: "Supprimer",
-  cellDataType: "action",
-}
-```
+> **Remarque :** la valeur `"none"` pour `inForm` indique que le champ est présent dans la grille mais n’apparaît ni en vue détail, ni dans les formulaires d’ajout ou d’édition.
 
 ---
 
@@ -158,7 +135,7 @@ options: [
 
 ### 🔁 Select dynamique
 
-Les options sont chargées depuis un **endpoint Xano**, en fonction d’un paramètre :
+Les options sont chargées depuis un **endpoint Xano**, en fonction d’un paramètre.
 
 ```js
 editType: "select_dynamic",
@@ -166,6 +143,14 @@ dynamicParameter: "group_id",
 endPoint_path: "group_entities",
 endPoint_groupApi: "coqyvShK"
 ```
+
+🧩 Fonctionnement :  
+- Ouvre un **mini DataGrid** affichant les options reçues de l’API.  
+- Permet la **sélection multiple** si configurée.  
+- Inclut une **pagination automatique** (ex. “1 à 10 sur 245 éléments”).  
+- Retourne un ou plusieurs objets selon la configuration du champ.  
+
+---
 
 ### 🔗 Select conditionnel
 
@@ -175,14 +160,20 @@ Une liste dépend d’une autre :
 editType: "select_conditional",
 options: collections['1234abcd']?.['data']?.['targets']
 ```
-La structure de donnée attendue est la suivante :
+
+Structure de données attendue :
+
 ```js
 [{
-   code: "code"
-   label: "Libellé du code"
-   options : [{},...]
+   code: "code",
+   label: "Libellé du code",
+   options : [{}, ...]
 }]
 ```
+
+💡 Utilisé pour des cas de sélection hiérarchique (ex. type → sous-type).
+
+---
 
 ### 🖼️ Image
 
@@ -206,6 +197,9 @@ imageHeight: "100%"
 | **Ajout + Modification** | CRUD complet. |
 | **Modification seule** | Pas d’ajout, uniquement édition/suppression. |
 | **Ajout seul** | Pas de modification, uniquement ajout. |
+| **ViewOnly** | Lecture seule sur tous les champs. |
+| **EditOnly** | Permet uniquement l’édition d’enregistrements existants. |
+| **AddOnly** | Permet uniquement l’ajout de nouveaux éléments. |
 
 Les modes se contrôlent via les propriétés `ViewOnly`, `editOnly`, `addOnly`, ou les boutons de la barre supérieure.
 
@@ -221,7 +215,7 @@ Elles **émettent un événement** que l’on peut intercepter via un **workflow
 - **Entrée du workflow :** un objet contenant les valeurs du formulaire.  
 - **Utilisation :** libre à l’utilisateur d’appeler l’API Xano correspondante ou de modifier le comportement (par ex. ajouter à une collection locale).
 
-Exemple d’objet en entrée :
+Exemple :
 ```json
 {
   "name": "Nouveau client",
@@ -253,8 +247,6 @@ Exemple :
   }
 ]
 ```
-
-Le résultat final à envoyer vers Xano peut être reconstitué dans le workflow via une action “Merge objects”.
 
 ---
 
@@ -312,11 +304,12 @@ Accessible via le panneau latéral :
 
 ## ✅ Bonnes pratiques
 
-- Inclure `inForm: true` sur les champs nécessaires dans la popup.  
+- Utiliser `inForm: "view"`, `"edit"`, `"add"` pour ajuster la visibilité et l’éditabilité des champs selon le contexte.  
 - Centraliser les `options` dynamiques dans des **collections WeWeb**.  
 - Définir un `actionName` explicite pour chaque action.  
 - Tester les imports CSV avec le **template exporté**.  
 - Utiliser `fieldObject` pour les structures imbriquées (`object.property`).  
-- Connecter systématiquement les workflows `add`, `edit` et `delete` à vos APIs Xano.
+- Connecter systématiquement les workflows `add`, `edit` et `delete` à vos APIs Xano.  
+- Préférer `select_dynamic` pour des données volumineuses et `select_conditional` pour des relations parent/enfant.  
 
 ---
