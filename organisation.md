@@ -19,27 +19,27 @@
 
 ## 2. Interlocuteurs & responsabilités
 - **Sponsor** : François Fillat (Piranèse).
-- **Chef de projet** : Axel (Piranèse).
-- **Trade (Elba)** : Aurore.
+- **Chef de projet** : Axelle Andrieu (Piranèse).
+- **Trade (Elba)** : Aurore Cnudde.
 - **Projet L’Oréal** : Lydia Almela.
 - **Luxottica** : Amélie Vargoz, Cristina Ruivo.
 - **Mask** : Valérie Thébeau.
-- **Coraux** : Virginie du Couchet.
-- **Comptabilité / Sage** : Stéphane Bayez.
+- **Coraux** : Virginie du Boucher.
+- **Comptabilité / Sage** : Stéphane Baillez.
 - **Direction générale** : Thibaut de Malézieux.
 
 ## 3. Équipe Explora
-- **Benoît Renoux** — Données, modèle & back-end **Xano** (externe).
-- **Marine Contet** — Suivi projet & **Airtable** (interne).
+- **Benoît Renou** — Données, modèle & back-end **Xano** (externe).
+- **Marine Canter** — Suivi projet & **Airtable** (interne).
 - **Florian Harmel** — PO + FrontEnd **WeWeb** (externe).
 
 ## 4. Processus & workflows
 1. **Commande** (WeWeb) → validation interne (Elba) → **PDF** / confirmation **email** → **Airtable** pour le suivi.
 2. **Production** (Mask) et **Installation** (Coraux) coordonnées par Elba.
-3. **Comptabilité** (Sage) synchronisée depuis Xano (règles définies avec Stéphane Bayez).
+3. **Comptabilité** (Sage) synchronisée depuis Xano (règles définies avec Stéphane Baillez).
 
 ## 5. Gouvernance & décisions
-- **Rituels** : comité projet (sponsor/chef de projet/PO), points opérationnels hebdo.
+- **Rituels** : comité projet (sponsor/chef de projet/PO/dev) hebdo le mercredi, points opérationnels quotidiens.
 - **Roadmap** : priorisation par **valeur métier** (clients) et **coût d’implémentation** (équipe).
 - **Qualité** : critères d’acceptation, jeux de tests par scénario (Trade/Optique/Travel).
 
