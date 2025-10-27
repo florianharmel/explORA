@@ -7,7 +7,7 @@
 
 ---
 
-## 🎯 Objet
+## 🎯 Objectif
 Sélecteur personnalisable avec recherche intégré, trois rendus visuels et la capacité d’exposer **l’objet complet sélectionné** (pas seulement un id). Idéal pour les listes de marques, magasins, espaces, etc.
 
 ---
