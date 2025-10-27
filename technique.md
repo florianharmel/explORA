@@ -27,6 +27,19 @@
                                                |
                                                +--> Airtable (sync statuts/ops)
 ```
+
+
+```mermaid
+flowchart LR
+  WW[WeWeb<br/>Frontend] -- REST JSON (JWT) --> XA[Xano<br/>API + Data + Rules]
+  XA -- Sync statuts / Webhooks --> AT[Airtable<br/>Suivi & Opérations]
+  AT -- (optionnel) MàJ de statut --> XA
+  XA -- Export comptable (CSV/API) --> SG[Sage<br/>Comptabilité]
+  SG -- Références d'écritures / Statuts --> XA
+
+  classDef svc fill:#f9f9f9,stroke:#888,stroke-width:1px;
+  class WW,XA,AT,SG svc;
+```
 - **WeWeb** : UI, validation de base, orchestration simple via **workflows**.
 - **Xano** : logique métier (prix, droits, filtrage), **source de vérité** des données.
 
